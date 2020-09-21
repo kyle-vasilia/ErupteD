@@ -1081,7 +1081,7 @@ mixin template Platform_Extensions( extensions... ) {
 
     // compose a new loadInstanceLevelFunctions function out of
     // unextended original function and additional function pointers from extensions
-    void loadInstanceLevelFunctions( VkInstance instance ) {
+    void loadInstanceLevelFunctionsKHR( VkInstance instance ) {
 
         // first load all non platform related function pointers from implementation
         erupted.functions.loadInstanceLevelFunctions( instance );
@@ -1170,7 +1170,7 @@ mixin template Platform_Extensions( extensions... ) {
 
     // compose a new loadDeviceLevelFunctions function out of
     // unextended original function and additional function pointers from extensions
-    void loadDeviceLevelFunctions( VkInstance instance ) {
+    void loadDeviceLevelFunctionsKHR( VkInstance instance ) {
 
         // first load all non platform related function pointers from implementation
         erupted.functions.loadDeviceLevelFunctions( instance );
@@ -1250,7 +1250,7 @@ mixin template Platform_Extensions( extensions... ) {
 
     // compose a new device based loadDeviceLevelFunctions function
     // out of unextended original and additional function pointers from extensions
-    void loadDeviceLevelFunctions( VkDevice device ) {
+    void loadDeviceLevelFunctionsKHR( VkDevice device ) {
 
         // first load all non platform related function pointers from implementation
         erupted.functions.loadDeviceLevelFunctions( device );
@@ -1339,12 +1339,12 @@ mixin template Platform_Extensions( extensions... ) {
 
         // Constructor forwards parameter 'device' to 'this.loadDeviceLevelFunctions'
         this( VkDevice device ) {
-            this.loadDeviceLevelFunctions( device );
+            this.loadDeviceLevelFunctionsKHR( device );
         }
 
         // compose a new device based loadDeviceLevelFunctions member function
         // out of unextended original and additional member function pointers from extensions
-        void loadDeviceLevelFunctions( VkDevice device ) {
+        void loadDeviceLevelFunctionsKHR( VkDevice device ) {
 
             // first load all non platform related member function pointers of wrapped commonDispatchDevice
             commonDispatchDevice.loadDeviceLevelFunctions( device );
